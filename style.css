@@ -1,26 +1,35 @@
-#main{
-	margin: 2vh;
+#main {
+  margin: 2vh;
 }
 
-#top{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 4px;
+#top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 4px;
 }
 
-#mainTextarea{
-	text-align: center;
+#mainTextarea {
+  text-align: center;
 }
 
-#mainTextarea textarea{
-	height: 85vh;
-	width: 96vw;
-	resize: none;
-	font-size: 16px;
+#mainTextarea textarea {
+  height: 85vh;
+  width: 96vw;
+  resize: none;
+  font-size: 16px;
 }
 
-#under{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 4px;
+#under {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 4px;
 }
+/*# sourceMappingURL=style.css.map */
