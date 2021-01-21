@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自習</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<link href="/style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="/index.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="top">
+				<!-- 文字サイズ -->
+				<select id="fontSize">
+					<option value="16">文字サイズ：小</option>
+					<option value="24">文字サイズ：中</option>
+					<option value="30">文字サイズ：大</option>
+				</select>
+				<!-- 現在時刻 -->
+				<div id="currentTime"></div>
+			</div>
+			<!-- テキスト -->
+			<div id="mainTextarea">
+				<textarea id="textarea1"></textarea>
+			</div>
+			<div id="under">
+				<!-- ボタンエリア -->
+				<div id="buttonArea">
+					<input type="button" value="クリア" onclick="clearTextarea()">
+					<input type="button" value="コピー" onclick="copyTextarea()">
+					<input type="button" value="保存" onclick="saveTextarea()">
+					<input type="file" id="file" onchange="readTextarea()">
+				</div>
+				<div>
+					<div id="time">00:00:00</div>
+					<div>
+						<input id="start" type="button" value="start">
+						<input id="stop" type="button" value="stop" disabled>
+						<input id="reset" type="button" value="reset" disabled>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
