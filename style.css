@@ -1,35 +1,36 @@
 #main {
-  margin: 2vh;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-#top {
+#main #top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
-#mainTextarea {
+#main #mainTextarea {
   text-align: center;
 }
 
-#mainTextarea textarea {
-  height: 85vh;
+#main #mainTextarea textarea {
+  height: 88vh;
   width: 96vw;
   resize: none;
   font-size: 16px;
 }
 
-#under {
+#main #under {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 4px;
 }
 /*# sourceMappingURL=style.css.map */

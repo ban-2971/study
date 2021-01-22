@@ -1,25 +1,25 @@
 #main{
-	margin: 2vh;
-}
-
-#top{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 4px;
-}
-
-#mainTextarea{
-    text-align: center;
-    textarea{
-        height: 85vh;
-        width: 96vw;
-        resize: none;
-        font-size: 16px;
+    margin: {
+        top: 10px;
+        left: 20px;
+        right: 20px;
     }
-}
-
-#under{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 4px;
+    #top{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    #mainTextarea{
+        text-align: center;
+        textarea{
+            height: 88vh;
+            width: 96vw;
+            resize: none;
+            font-size: 16px;
+        }
+    }
+    #under{
+        display: flex;
+        justify-content: space-between;
+    }
 }
