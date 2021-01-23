@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>自習です</title>
+		<title>memo</title>
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<link href="/style.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="/index.js"></script>
@@ -11,11 +11,7 @@
 		<div id="main">
 			<div id="top">
 				<!-- 文字サイズ -->
-				<select id="fontSize">
-					<option value="16">文字サイズ：小</option>
-					<option value="24">文字サイズ：中</option>
-					<option value="30">文字サイズ：大</option>
-				</select>
+				<select id="fontSize"></select>
 				<!-- 現在時刻 -->
 				<div id="currentTime"></div>
 			</div>
@@ -26,11 +22,12 @@
 			<div id="under">
 				<!-- ボタンエリア -->
 				<div id="buttonArea">
-					<input type="button" value="クリア" onclick="clearTextarea()">
-					<input type="button" value="コピー" onclick="copyTextarea()">
-					<input type="button" value="保存" onclick="saveTextarea()">
-					<input type="file" id="file" onchange="readTextarea()">
+					<input type="button" value="クリア" id="clearTextarea">
+					<input type="button" value="コピー" id="copyTextarea">
+					<input type="button" value="保存" id="saveTextarea">
+					<input type="file" id="file">
 				</div>
+				<!-- ストップウォッチ -->
 				<div>
 					<div id="time">00:00:00</div>
 					<div>

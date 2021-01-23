@@ -1,129 +1,135 @@
+$(function(){
+	// フォントサイズ
+	for(var i = 16; i <= 50; i++){
+		var option = document.createElement("option");
+		option.setAttribute("value", i);
+		option.innerHTML = "フォントサイズ：" + i + "px";
+		$("#fontSize").append(option);
+	};
+	$("#fontSize").change(function(){
+		var size = $(this).val();
+		$("textarea").css("fontSize", size + "px");
+	});
+
 
 	//現在時刻
-	function currentTime(){
+	setInterval(function(){
 		var now   = new Date();
+		var year  = now.getFullYear();
+		var month = now.getMonth() + 1;
+		var date  = now.getDate();
+		var weeks = now.getDay();
+		var week  = ["日", "月", "火", "水", "木", "金", "土"][weeks];
+		var hour  = now.getHours().toString().padStart(2, '0');
+		var min   = now.getMinutes().toString().padStart(2, '0');
+		var sec   = now.getSeconds().toString().padStart(2, '0');
 
-		var year   = now.getFullYear();
-		var month  = now.getMonth() + 1;
-		var date   = now.getDate();
-		var week   = now.getDay();
-		var jaWeek = ["日", "月", "火", "水", "木", "金", "土"][week];
-		var hour   = ("0" + now.getHours()).slice(-2);
-		var min    = ("0" + now.getMinutes()).slice(-2);
-		var sec    = ("0" + now.getSeconds()).slice(-2);
+		$("#currentTime").html(year + "年" + month + "月" + date + "日" + "(" + week + ")" + hour + ":" + min + ":" + sec);
+	}, 1000);
 
-		document.getElementById("currentTime").innerHTML = year + "年" + month + "月" + date + "日" + "(" + jaWeek + ")" + hour + ":" + min + ":" + sec;
-		//target.innerHTML = now.toLocaleString("ja");
-	}
-	setInterval('currentTime()', 1000);
 
 	//クリア
-	function clearTextarea() {
-		if(window.confirm('本当に消していいですか？')){
-			document.getElementById("textarea1").value = '';
+	$("#clearTextarea").click(function(){
+		if(!confirm("本当に消していいですか？")){
+			return false;
+		}else{
+			$("#textarea1").val("");
 		}
-	}
+	});
+
 
 	//コピー
-	function copyTextarea(){
-		document.getElementById("textarea1").select();
+	$("#copyTextarea").click(function(){
+		$("#textarea1").select();
 		document.execCommand('copy');
-	}
+	});
+
 
 	//保存
-	function saveTextarea(){
-		if(window.confirm('保存しますか？')){
-			const txt = document.getElementById('textarea1').value;
+	$("#saveTextarea").click(function(){
+		if(!confirm("保存しますか？")){
+			return false;
+		}else{
+			const txt = $("#textarea1").val();
 			if (!txt){
 				return;
 			}
-			const blob = new Blob([txt], { type: 'text/plain' });
+			const blob = new Blob([txt], {type: 'text/plain'});
 			const a = document.createElement('a');
 			a.href =  URL.createObjectURL(blob);
 			a.download = 'memo.txt';
 			a.click();
 		}
-	}
+	});
+
 
 	//読み込み
-	function readTextarea(){
+	$("#file").change(function(){
 		let fileReader = new FileReader();
-		let file = document.getElementById('file').files[0];
+		let file = $(this).prop("files")[0];
 		fileReader.readAsText(file);
-		fileReader.onload = function() {
-			document.getElementById("textarea1").value = fileReader.result;
+		fileReader.onload = function(){
+			$("#textarea1").val(fileReader.result);
 		}
+	});
+
+
+	//ストップウォッチ
+	var intervalId = null;
+	//経過時間のミリ秒
+	var elapsed = 0;
+
+	function updateTime(){
+		const ms = elapsed % 1000;
+		const s = Math.floor(elapsed / 1000) % 60;
+		const m = Math.floor(elapsed / (1000*60)) % 60;
+		const h = Math.floor(elapsed / (1000*60*60));
+
+		const msStr = ms.toString().padStart(3, '0');
+		const sStr = s.toString().padStart(2, '0');
+		const mStr = m.toString().padStart(2, '0');
+		const hStr = h.toString().padStart(2, '0');
+
+		$("#time").html(hStr + ":" + mStr + ":" + sStr);
 	}
 
-	$(function(){
-		// フォントサイズ
-		$('#fontSize').change(function() {
-			var size = $(this).val();
-			$("textarea").css("fontSize", size+"px");
-		});
-
-
-		//ストップウォッチ
-		const timeElement = document.getElementById('time');
-		const start = document.getElementById('start');
-		const stop = document.getElementById('stop');
-		const reset = document.getElementById('reset');
-
-		//経過時間のミリ秒
-		let elapsed = 0;
-
-		let intervalId = null;
-
-		function updateTime(){
-			const ms = elapsed % 1000;
-			const s = Math.floor(elapsed / 1000) % 60;
-			const m = Math.floor(elapsed / (1000*60)) % 60;
-			const h = Math.floor(elapsed / (1000*60*60));
-
-			const msStr = ms.toString().padStart(3, '0');
-			const sStr = s.toString().padStart(2, '0');
-			const mStr = m.toString().padStart(2, '0');
-			const hStr = h.toString().padStart(2, '0');
-
-			timeElement.innerHTML = `${hStr}:${mStr}:${sStr}`;
-
-		}
-
-		start.addEventListener('click', function(e){
-			if(intervalId !== null){ return; }
-			let pre = new Date();
-			start.setAttribute("disabled", true);
-			stop.removeAttribute("disabled");
-			reset.setAttribute("disabled", true);
-			intervalId = setInterval(function(){
-				const now = new Date();
-				elapsed += now - pre;
-				pre = now;
-				updateTime();
-			}, 10);
-		});
-
-		stop.addEventListener('click', function(e){
-			clearInterval(intervalId);
-			start.removeAttribute("disabled");
-			stop.setAttribute("disabled", true);
-			reset.removeAttribute("disabled");
-			intervalId = null;
-		});
-
-		reset.addEventListener('click', function(e){
-			elapsed = 0;
-			start.removeAttribute("disabled");
-			stop.setAttribute("disabled", true);
-			reset.setAttribute("disabled", true);
+	$("#start").click(function(){
+		if(intervalId !== null){ return; }
+		var pre = new Date();
+		$("#start").prop("disabled", true);
+		$("#stop").prop("disabled", false);
+		$("#reset").prop("disabled", true);
+		intervalId = setInterval(function(){
+			const now = new Date();
+			elapsed += now - pre;
+			pre = now;
 			updateTime();
-		});
+		}, 10);
+	});
+
+	$("#stop").click(function(){
+		clearInterval(intervalId);
+		$("#start").prop("disabled", false);
+		$("#stop").prop("disabled", true);
+		$("#reset").prop("disabled", false);
+		intervalId = null;
+	});
+
+	$("#reset").click(function(){
+		elapsed = 0;
+		$("#start").prop("disabled", false);
+		$("#stop").prop("disabled", true);
+		$("#reset").prop("disabled", true);
+		updateTime();
 	});
 
 
-	//ラウザを閉じる前の確認アラート
-	window.addEventListener('beforeunload', function (e) {
-		e.preventDefault();
-		e.returnValue = '';
+	//ページが閉じられる時
+	$(window).on('beforeunload', function(){
+		return "";
 	});
+});
+
+
+
 
