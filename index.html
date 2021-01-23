@@ -17,7 +17,7 @@
 			</div>
 			<!-- テキスト -->
 			<div id="mainTextarea">
-				<textarea id="textarea1"></textarea>
+				<textarea id="textarea1" spellcheck="false"></textarea>
 			</div>
 			<div id="under">
 				<!-- ボタンエリア -->
@@ -25,7 +25,10 @@
 					<input type="button" id="clearTextarea" value="クリア">
 					<input type="button" id="copyTextarea" value="コピー">
 					<input type="button" id="saveTextarea" value="保存">
-					<input type="file" id="file">
+					<label for="file">
+						読込
+						<input type="file" id="file">
+					</label>
 				</div>
 				<!-- ストップウォッチ -->
 				<div>

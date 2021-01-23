@@ -12,6 +12,20 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 10px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+#main #top select {
+  border-radius: 5px;
+  font-size: 14px;
+  border-color: #c7c7c7;
+  background-color: #d3d3d3;
+  cursor: pointer;
+}
+
+#main #top select:focus {
+  outline: none;
 }
 
 #main #mainTextarea {
@@ -24,6 +38,10 @@
   resize: none;
 }
 
+#main #mainTextarea textarea:focus {
+  outline: none;
+}
+
 #main #under {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,6 +49,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 #main #under input {
@@ -43,6 +63,27 @@
   padding: 0 5px;
   font-size: 14px;
   cursor: pointer;
+}
+
+#main #under input:focus {
+  outline: none;
+}
+
+#main #under label {
+  color: #ffffff;
+  background-color: #FF9900;
+  padding: 3.5px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#main #under label input {
+  display: none;
+}
+
+#main #under label:hover {
+  background: #ffc266;
 }
 
 #main #under #clearTextarea {
@@ -78,6 +119,10 @@
 }
 
 #main #under .btn:disabled {
-  background: #DDDDDD;
+  background: #d3d3d3;
+}
+
+#main #under #time {
+  font-size: 20px;
 }
 /*# sourceMappingURL=style.css.map */

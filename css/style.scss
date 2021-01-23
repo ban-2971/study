@@ -9,7 +9,21 @@
     #top{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
+        margin: {
+            bottom: 10px;
+            left: 6px;
+            right: 6px;
+        }
+        select{
+            border-radius: 5px;
+            font-size: 14px;
+            border-color: $grey;
+            background-color: $lightgrey;
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+        }
     }
     #mainTextarea{
         text-align: center;
@@ -17,46 +31,73 @@
             height: 88vh;
             width: 96vw;
             resize: none;
+            &:focus{
+                outline: none;
+            }
         }
     }
     #under{
         display: flex;
         justify-content: space-between;
+        margin: {
+            left: 6px;
+            right: 6px;
+        }
+        input{
+            appearance: none;
+            border: 0;
+            border-radius: 5px;
+            color: $white;
+            padding: 0 5px;
+            font-size: 14px;
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+        }
+        label {
+            color: $white;
+            background-color: $orange;
+            padding: 3.5px 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
             input{
-                appearance: none;
-                border: 0;
-                border-radius: 5px;
-                color: $white;
-                padding: 0 5px;
-                font-size: 14px;
-                cursor: pointer;
+                display: none;
             }
-            #clearTextarea{
-                background: $red;
-                &:hover{
-                    background: lighten($red, 20%);
-                }
+            &:hover{
+                background: lighten($orange, 20%);
             }
-            #copyTextarea{
-                background: $blue;
-                &:hover{
-                    background: lighten($blue, 20%);
-                }
+        }
+        #clearTextarea{
+            background: $red;
+            &:hover{
+                background: lighten($red, 20%);
             }
-            #saveTextarea{
-                background: $green;
-                &:hover{
-                    background: lighten($green, 20%);
-                }
+        }
+        #copyTextarea{
+            background: $blue;
+            &:hover{
+                background: lighten($blue, 20%);
             }
-            .btn{
-                background: $black;
-                &:hover{
-                    background: lighten($black, 50%);
-                }
-                &:disabled{
-                    background: $gray;
-                }
+        }
+        #saveTextarea{
+            background: $green;
+            &:hover{
+                background: lighten($green, 20%);
             }
+        }
+        .btn{
+            background: $black;
+            &:hover{
+                background: lighten($black, 50%);
+            }
+            &:disabled{
+                background: $lightgrey;
+            }
+        }
+        #time{
+            font-size: 20px;
+        }
     }
 }
