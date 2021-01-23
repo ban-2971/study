@@ -1,0 +1,83 @@
+#main {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#main #top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#main #mainTextarea {
+  text-align: center;
+}
+
+#main #mainTextarea textarea {
+  height: 88vh;
+  width: 96vw;
+  resize: none;
+}
+
+#main #under {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#main #under input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 0 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#main #under #clearTextarea {
+  background: #FF4F50;
+}
+
+#main #under #clearTextarea:hover {
+  background: #ffb5b5;
+}
+
+#main #under #copyTextarea {
+  background: #4676D7;
+}
+
+#main #under #copyTextarea:hover {
+  background: #9ab4e9;
+}
+
+#main #under #saveTextarea {
+  background: #32CD32;
+}
+
+#main #under #saveTextarea:hover {
+  background: #84e184;
+}
+
+#main #under .btn {
+  background: #000000;
+}
+
+#main #under .btn:hover {
+  background: gray;
+}
+
+#main #under .btn:disabled {
+  background: #DDDDDD;
+}
+/*# sourceMappingURL=style.css.map */

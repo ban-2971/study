@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>memo</title>
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<link href="/style.css" rel="stylesheet" type="text/css">
+		<link href="../css/style.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="/index.js"></script>
 	</head>
 	<body>
@@ -22,18 +22,18 @@
 			<div id="under">
 				<!-- ボタンエリア -->
 				<div id="buttonArea">
-					<input type="button" value="クリア" id="clearTextarea">
-					<input type="button" value="コピー" id="copyTextarea">
-					<input type="button" value="保存" id="saveTextarea">
+					<input type="button" id="clearTextarea" value="クリア">
+					<input type="button" id="copyTextarea" value="コピー">
+					<input type="button" id="saveTextarea" value="保存">
 					<input type="file" id="file">
 				</div>
 				<!-- ストップウォッチ -->
 				<div>
 					<div id="time">00:00:00</div>
 					<div>
-						<input id="start" type="button" value="start">
-						<input id="stop" type="button" value="stop" disabled>
-						<input id="reset" type="button" value="reset" disabled>
+						<input type="button" id="start" class="btn" value="start">
+						<input type="button" id="stop" class="btn" value="stop" disabled>
+						<input type="button" id="reset" class="btn" value="reset" disabled>
 					</div>
 				</div>
 			</div>
